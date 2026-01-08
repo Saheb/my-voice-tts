@@ -11,3 +11,6 @@ wheels/
 
 # Voice files
 voices/
+
+# Output files
+output/
