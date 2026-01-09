@@ -101,7 +101,12 @@ def record_voice(
     # Save to file
     sf.write(str(output_path), audio_data, sample_rate)
     
+    # Save the reference text for F5-TTS (needs transcription of what was spoken)
+    txt_path = output_path.with_suffix('.txt')
+    txt_path.write_text(SAMPLE_TEXT.strip())
+    
     console.print(f"\n[bold green]✅ Saved to:[/bold green] {output_path}")
+    console.print(f"[dim]Reference text saved to: {txt_path.name}[/dim]")
     console.print(f"[dim]File size: {output_path.stat().st_size / 1024:.1f} KB[/dim]")
     
     return output_path

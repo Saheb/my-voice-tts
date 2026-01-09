@@ -283,6 +283,43 @@ wheels = [
 ]
 
 [[package]]
+name = "einx"
+version = "0.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "frozendict" },
+    { name = "numpy" },
+    { name = "sympy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/95/af/2a2f83f981e969ae3ec5dc30f9b0cd1a258acabc2ff7b33eb9726e334e55/einx-0.3.0.tar.gz", hash = "sha256:17ff87c6a0f68ab358c1da489f00e95f1de106fd12ff17d0fb3e210aaa1e5f8c", size = 84758, upload-time = "2024-06-11T13:49:37.532Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/90/04/4a730d74fd908daad86d6b313f235cdf8e0cf1c255b392b7174ff63ea81a/einx-0.3.0-py3-none-any.whl", hash = "sha256:367d62bab8dbb8c4937308512abb6f746cc0920990589892ba0d281356d39345", size = 102958, upload-time = "2024-06-11T13:49:36.441Z" },
+]
+
+[[package]]
+name = "f5-tts-mlx"
+version = "0.2.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "einops" },
+    { name = "einx" },
+    { name = "huggingface-hub" },
+    { name = "jieba" },
+    { name = "mlx" },
+    { name = "numpy" },
+    { name = "pypinyin" },
+    { name = "setuptools" },
+    { name = "sounddevice" },
+    { name = "soundfile" },
+    { name = "tqdm" },
+    { name = "vocos-mlx" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/98/be/37627863ed8c2ab7fdd09123c3b2299d637a9153f639b2c1bb84b4a065ac/f5_tts_mlx-0.2.6.tar.gz", hash = "sha256:de94f7ba838cce4b44c4c926335a820b93bd629a5ad0f9f8ac98fc65c166529d", size = 237088, upload-time = "2025-03-19T02:11:37.406Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e5/04/18740971b4602651c4caf3dfd44062df0a93aa345e4f40e10863df8c8111/f5_tts_mlx-0.2.6-py3-none-any.whl", hash = "sha256:bfb7d4c5c9020436f8bb16a8051d8a42c8a83b940b634a71a127024bb6554ec4", size = 237700, upload-time = "2025-03-19T02:11:35.887Z" },
+]
+
+[[package]]
 name = "fastapi"
 version = "0.128.0"
 source = { registry = "https://pypi.org/simple" }
@@ -313,6 +350,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/c1/e0/a75dbe4bca1e7d41307323dad5ea2efdd95408f74ab2de8bd7dba9b51a1a/filelock-3.20.2.tar.gz", hash = "sha256:a2241ff4ddde2a7cebddf78e39832509cb045d18ec1a09d7248d6bfc6bfbbe64", size = 19510, upload-time = "2026-01-02T15:33:32.582Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9a/30/ab407e2ec752aa541704ed8f93c11e2a5d92c168b8a755d818b74a3c5c2d/filelock-3.20.2-py3-none-any.whl", hash = "sha256:fbba7237d6ea277175a32c54bb71ef814a8546d8601269e1bfc388de333974e8", size = 16697, upload-time = "2026-01-02T15:33:31.133Z" },
+]
+
+[[package]]
+name = "frozendict"
+version = "2.4.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/90/b2/2a3d1374b7780999d3184e171e25439a8358c47b481f68be883c14086b4c/frozendict-2.4.7.tar.gz", hash = "sha256:e478fb2a1391a56c8a6e10cc97c4a9002b410ecd1ac28c18d780661762e271bd", size = 317082, upload-time = "2025-11-11T22:40:14.251Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/38/74/f94141b38a51a553efef7f510fc213894161ae49b88bffd037f8d2a7cb2f/frozendict-2.4.7-py3-none-any.whl", hash = "sha256:972af65924ea25cf5b4d9326d549e69a9a4918d8a76a9d3a7cd174d98b237550", size = 16264, upload-time = "2025-11-11T22:40:12.836Z" },
 ]
 
 [[package]]
@@ -501,6 +547,12 @@ wheels = [
 ]
 
 [[package]]
+name = "jieba"
+version = "0.42.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c6/cb/18eeb235f833b726522d7ebed54f2278ce28ba9438e3135ab0278d9792a2/jieba-0.42.1.tar.gz", hash = "sha256:055ca12f62674fafed09427f176506079bc135638a14e23e25be909131928db2", size = 19214172, upload-time = "2020-01-20T14:27:23.5Z" }
+
+[[package]]
 name = "jinja2"
 version = "3.1.6"
 source = { registry = "https://pypi.org/simple" }
@@ -656,6 +708,31 @@ wheels = [
 ]
 
 [[package]]
+name = "mlx"
+version = "0.30.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mlx-metal", marker = "sys_platform == 'darwin'" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/07/14/74acbd677ececd17a44dafda1b472aebacef54f60ff9a41a801f711de9a7/mlx-0.30.1-cp311-cp311-macosx_14_0_arm64.whl", hash = "sha256:acfd7d1b8e5b9fa1b7e9fab4cc5ba6a492c559fbb1c5aeab16c1d7a148ab4f1b", size = 593048, upload-time = "2025-12-18T01:55:34.9Z" },
+    { url = "https://files.pythonhosted.org/packages/58/8c/5309848afb9c53d363f59b88ae5811de248e2817e91aeadf007e2ac8d22b/mlx-0.30.1-cp311-cp311-macosx_15_0_arm64.whl", hash = "sha256:b62030471272d1835b8137164bd43d863cc93ff1d67ec4f1f87bb4c8613dd5a6", size = 593043, upload-time = "2025-12-18T01:55:36.839Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/5a/0039815a930f0193e2cffb27c57dc6971004bce0086c2bbbdb10395c272c/mlx-0.30.1-cp311-cp311-macosx_26_0_arm64.whl", hash = "sha256:0489cd340f2d262cb3aaad4368e40e84b152e182e4cea37ba018e56c72e1d020", size = 567014, upload-time = "2025-12-18T00:15:51.731Z" },
+    { url = "https://files.pythonhosted.org/packages/de/c7/6bdb5497c1f5ed3e33afa7785761ad87fd3436c071805d9a93c905943f04/mlx-0.30.1-cp311-cp311-manylinux_2_35_aarch64.whl", hash = "sha256:fbdcfc3ed556a7e701a8eb67da299e2a25f52615193833ca6374decca3be5bf4", size = 658930, upload-time = "2025-12-18T01:55:38.441Z" },
+    { url = "https://files.pythonhosted.org/packages/91/02/2d86a1c116e951eb4d88fe313c321e23628ce7404712e1258cacf925a8b8/mlx-0.30.1-cp311-cp311-manylinux_2_35_x86_64.whl", hash = "sha256:68ec854e7b5f89454e67d6c2fa7bb416b8afb148003ccd775904ec6ec4744818", size = 692484, upload-time = "2025-12-18T01:55:40.254Z" },
+]
+
+[[package]]
+name = "mlx-metal"
+version = "0.30.1"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/09/3f/0be35ddad7e13d8ecd33a9185895f9739bb00b96ef0cce36cf0405d4aec0/mlx_metal-0.30.1-py3-none-macosx_14_0_arm64.whl", hash = "sha256:e7e92c6bdbd7ac8083f528a4c6640552ae106a57bb3d99856ac10a32e93a4b5e", size = 36864966, upload-time = "2025-12-18T01:55:31.473Z" },
+    { url = "https://files.pythonhosted.org/packages/1e/1f/c0bddd0d5bf3871411aabe32121e09e1b7cdbece8917a49d5a442310e3e5/mlx_metal-0.30.1-py3-none-macosx_15_0_arm64.whl", hash = "sha256:bb50f57418af7fc3c42a2da2c4bde0e7ab7ac0b997de1f6f642a6680ac65d626", size = 36859011, upload-time = "2025-12-18T01:55:34.541Z" },
+    { url = "https://files.pythonhosted.org/packages/67/b3/73cc2f584ac612a476096d35a61eed75ee7ed8b4e320b0c36cf60a14d4eb/mlx_metal-0.30.1-py3-none-macosx_26_0_arm64.whl", hash = "sha256:e0b151a0053ac00b4226710bfb6dbf54b87283fb01e10fb3877f9ea969f680aa", size = 44981160, upload-time = "2025-12-18T00:15:47.518Z" },
+]
+
+[[package]]
 name = "mpmath"
 version = "1.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -688,6 +765,8 @@ source = { editable = "." }
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "chatterbox-tts" },
+    { name = "f5-tts-mlx" },
+    { name = "librosa" },
     { name = "lxml" },
     { name = "pydub" },
     { name = "requests" },
@@ -700,6 +779,8 @@ dependencies = [
 requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.12.0" },
     { name = "chatterbox-tts", specifier = ">=0.1.0" },
+    { name = "f5-tts-mlx", specifier = ">=0.2.6" },
+    { name = "librosa", specifier = ">=0.11.0" },
     { name = "lxml", specifier = ">=5.0.0" },
     { name = "pydub", specifier = ">=0.25.1" },
     { name = "requests", specifier = ">=2.31.0" },
@@ -1150,6 +1231,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pypinyin"
+version = "0.55.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b4/a4/784cf98c09e0dc22776b0d7d8a4a5b761218bcae4608c2416ce1e167c8af/pypinyin-0.55.0.tar.gz", hash = "sha256:b5711b3a0c6f76e67408ec6b2e3c4987a3a806b7c528076e7c7b86fcf0eaa66b", size = 839836, upload-time = "2025-07-20T12:01:50.657Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b9/7b/4cabc76fcc21c3c7d5c671d8783984d30ac9d3bb387c4ba784fca3cdfa3a/pypinyin-0.55.0-py2.py3-none-any.whl", hash = "sha256:d53b1e8ad2cdb815fb2cb604ed3123372f5a28c6f447571244aca36fc62a286f", size = 840203, upload-time = "2025-07-20T12:01:48.535Z" },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pypi.org/simple" }
@@ -1381,6 +1471,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/7d/31/f2289ce78b9b473d582568c234e104d2a342fd658cc288a7553d83bb8595/semantic_version-2.10.0.tar.gz", hash = "sha256:bdabb6d336998cbb378d4b9db3a4b56a1e3235701dc05ea2690d9a997ed5041c", size = 52289, upload-time = "2022-05-26T13:35:23.454Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6a/23/8146aad7d88f4fcb3a6218f41a60f6c2d4e3a72de72da1825dc7c8f7877c/semantic_version-2.10.0-py2.py3-none-any.whl", hash = "sha256:de78a3b8e0feda74cabc54aab2da702113e33ac9d9eb9d2389bcf1f58b7d9177", size = 15552, upload-time = "2022-05-26T13:35:21.206Z" },
+]
+
+[[package]]
+name = "setuptools"
+version = "80.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz", hash = "sha256:f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c", size = 1319958, upload-time = "2025-05-27T00:56:51.443Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a3/dc/17031897dae0efacfea57dfd3a82fdd2a2aeb58e0ff71b77b87e44edc772/setuptools-80.9.0-py3-none-any.whl", hash = "sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922", size = 1201486, upload-time = "2025-05-27T00:56:49.664Z" },
 ]
 
 [[package]]
@@ -1735,6 +1834,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/78/49/87e23d8f742f10f965bce5d6b285fc88a4f436b11daf6b6225d4d66f8492/virtualenv-20.36.0.tar.gz", hash = "sha256:a3601f540b515a7983508113f14e78993841adc3d83710fa70f0ac50f43b23ed", size = 6032237, upload-time = "2026-01-07T17:20:04.975Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/eb/6a/0af36875e0023a1f2d0b66b4051721fc26740e947696922df1665b75e5d3/virtualenv-20.36.0-py3-none-any.whl", hash = "sha256:e7ded577f3af534fd0886d4ca03277f5542053bedb98a70a989d3c22cfa5c9ac", size = 6008261, upload-time = "2026-01-07T17:20:02.87Z" },
+]
+
+[[package]]
+name = "vocos-mlx"
+version = "0.0.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "huggingface-hub" },
+    { name = "mlx" },
+    { name = "numpy" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f1/f5/fc2149185abe3a65358e96d429f9e00148341f88da52851615fc4c991fd4/vocos_mlx-0.0.7.tar.gz", hash = "sha256:3d556736aaafe23b760befa5f7b639977a3d5c52ad7af65aefe0e636d5541ba3", size = 14660, upload-time = "2024-10-30T22:15:46.898Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/16/ec/d92a634ba5538d8213c300e2c3429f8f4a512db1012967cbf3ac11f08c01/vocos_mlx-0.0.7-py3-none-any.whl", hash = "sha256:a80ea5961811e982ef82a77b2450ea4cbeb5c47318497acaddbea4b58cbaa8d6", size = 15096, upload-time = "2024-10-30T22:15:45.242Z" },
 ]
 
 [[package]]
