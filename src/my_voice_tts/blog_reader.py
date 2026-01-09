@@ -48,6 +48,9 @@ def fetch_blog_content(url: str) -> dict:
     # Extract title
     title = extract_title(soup)
     
+    # Extract date
+    date = extract_date(soup)
+    
     # Extract main content
     content = extract_content(soup)
     
@@ -55,10 +58,13 @@ def fetch_blog_content(url: str) -> dict:
     cleaned_content = clean_text(content)
     
     console.print(f"[green]✓[/green] Title: {title}")
+    if date:
+        console.print(f"[green]✓[/green] Date: {date}")
     console.print(f"[green]✓[/green] Content: {len(cleaned_content)} characters")
     
     return {
         'title': title,
+        'date': date,
         'content': cleaned_content,
         'source': urlparse(url).netloc,
         'url': url
@@ -72,6 +78,8 @@ def extract_title(soup: BeautifulSoup) -> str:
         'h1.entry-title',
         'h1.post-title',
         'h1.article-title',
+        'h3.post-title',  # Blogspot
+        'h3.entry-title',
         'article h1',
         '.post h1',
         'h1',
@@ -86,6 +94,33 @@ def extract_title(soup: BeautifulSoup) -> str:
     return "Untitled"
 
 
+def extract_date(soup: BeautifulSoup) -> str | None:
+    """Extract the publication date."""
+    selectors = [
+        'time.published',  # Blogspot
+        '.publish-date',
+        '.date-header',    # Blogspot alternative
+        'time[datetime]',
+        'meta[name="date"]',
+        'meta[property="article:published_time"]'
+    ]
+    
+    for selector in selectors:
+        if selector.startswith('meta'):
+            element = soup.select_one(selector)
+            if element and element.get('content'):
+                # Simple cleanup of ISO string if needed
+                return element.get('content').split('T')[0]
+        else:
+            element = soup.select_one(selector)
+            if element and element.get_text(strip=True):
+                return element.get_text(strip=True)
+            if element and element.get('datetime'):
+                return element.get('datetime').split('T')[0]
+                
+    return None
+
+
 def extract_content(soup: BeautifulSoup) -> str:
     """Extract the main article content."""
     # Remove unwanted elements
@@ -97,7 +132,7 @@ def extract_content(soup: BeautifulSoup) -> str:
     unwanted_classes = [
         'sidebar', 'navigation', 'menu', 'footer', 'header',
         'advertisement', 'social', 'share', 'related', 'comments',
-        'newsletter', 'popup', 'modal', 'cookie'
+        'newsletter', 'popup', 'modal', 'cookie', 'date-header'  # Don't read date in content body
     ]
     
     for class_name in unwanted_classes:
@@ -153,6 +188,7 @@ def clean_text(text: str) -> str:
         r'Related posts.*',
         r'Like this:.*?(?=\n|$)',
         r'Loading\.\.\..*?(?=\n|$)',
+        r'Posted via email.*?(?=\n|$)', # Blogspot specific
     ]
     
     for pattern in patterns_to_remove:
@@ -185,8 +221,10 @@ def save_content_to_file(content: dict, output_path: Path) -> Path:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
     with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(f"# {content['title']}\n\n")
-        f.write(f"Source: {content['source']}\n")
+        f.write(f"# {content['title']}\n")
+        if content.get('date'):
+            f.write(f"Date: {content['date']}\n")
+        f.write(f"\nSource: {content['source']}\n")
         f.write(f"URL: {content['url']}\n\n")
         f.write("---\n\n")
         f.write(content['content'])

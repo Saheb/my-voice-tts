@@ -265,8 +265,15 @@ def cmd_read_blog(args):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         output_path = OUTPUT_DIR / f"blog_{timestamp}.wav"
     
-    # Prepare TTS text - include title
-    tts_text = f"{content['title']}. {content['content']}"
+    # Prepare TTS text - include title and date if available
+    parts = [content['title']]
+    
+    if content.get('date'):
+        # Format date for natural reading if needed (simple approximation)
+        parts.append(f"Published on {content['date']}")
+        
+    parts.append(content['content'])
+    tts_text = "\n\n".join(parts)
     
     console.print(f"\n[cyan]Generating audio for {len(tts_text)} characters...[/cyan]")
     
