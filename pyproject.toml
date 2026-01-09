@@ -13,8 +13,6 @@ dependencies = [
     "sounddevice>=0.4.6",
     "soundfile>=0.12.1",
     "pydub>=0.25.1",
-    "f5-tts-mlx>=0.2.6",
-    "librosa>=0.11.0",
 ]
 
 [project.scripts]

@@ -82,7 +82,7 @@ def main():
     speak_parser.add_argument(
         "-m", "--model",
         type=str,
-        choices=["chatterbox", "turbo", "f5"],
+        choices=["chatterbox", "turbo"],
         default="chatterbox",
         help="TTS model: 'chatterbox' (better quality) or 'turbo' (2-3x faster)"
     )
@@ -115,7 +115,7 @@ def main():
     blog_parser.add_argument(
         "-m", "--model",
         type=str,
-        choices=["chatterbox", "turbo", "f5"],
+        choices=["chatterbox", "turbo"],
         default="chatterbox",
         help="TTS model: 'chatterbox' (better quality) or 'turbo' (2-3x faster)"
     )
